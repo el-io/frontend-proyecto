@@ -11,7 +11,8 @@ createApp({
       imagen: "",
       stock: 0,
       precio: 0,
-      url: "https://serpiente.pythonanywhere.com/productos/" + id,
+      //url: "https://ramirocodoacodo.pythonanywhere.com/productos/" + id,
+      url: "http://localhost:5000/productos/" + id,
     };
   },
   methods: {
