@@ -7,8 +7,8 @@ createApp({
      */
     return {
       productos: [], // Almacena los productos obtenidos del backend
-      //url:'http://localhost:5000/productos', // URL local
-      url: "https://serpiente.pythonanywhere.com/productos", // URL del backend donde se encuentran los productos
+      url:'http://localhost:5000/productos', // URL local
+      //url: "https://serpiente.pythonanywhere.com/productos", // URL del backend donde se encuentran los productos
       error: false,
       cargando: true,
       // Atributos para el almacenar los valores del formulario
