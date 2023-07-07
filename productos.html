@@ -5,8 +5,8 @@
     <title>Listar Productos</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!--<link rel="stylesheet" href="bootstrap.css">-->
@@ -21,7 +21,12 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             /* Agrega una sombra */
         }
-        
+        .table td,
+        .table th {
+        font-size: 1.3rem;
+        color: #000000;
+  }
+
     </style>
 </head>
 
@@ -29,13 +34,14 @@
     <header id="header">
         <!-- Coloca la barra de navegación aquí -->
     </header>
-    <main>
-        <div id="app" class="container">
+    <main class="bg-secondary text-light">
+        <div id="app" class="container ">
             <h1>Productos en la base de datos</h1>
             <br>
             <!-- <a class="btn btn-primary" href="producto-create.html">Nuevo</a> -->
             <!-- <a class="btn btn-primary btn-animate" href="producto-create.html">Nuevo</a> -->
-            <a class="btn btn-primary animate__animated animate__heartBeat btn-animate" href="producto-create.html">Crear nuevo producto</a>
+            <a class="btn btn-primary animate__animated animate__heartBeat btn-animate"
+                href="producto-create.html">Crear nuevo producto</a>
             <br><br>
             <div v-if="error">
                 <p>Lo sentimos, ha ocurrido un error.</p>
@@ -45,11 +51,11 @@
                     <div class="spinner-border"></div>
                     <p>Cargando...</p>
                 </section>
-                <section v-else>
+                <section class="card">
                     <div class="table-responsive">
                         <table class="table" style="list-style: none">
                             <thead>
-                                <tr class="align-items-start">
+                                <tr class="align-items-start card-header">
                                     <th scope="col">Id</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Precio</th>
@@ -60,17 +66,17 @@
                             </thead>
                             <tbody>
                                 <!-- Iterar sobre cada producto -->
-                                <tr class="align-items-start" v-for="producto in productos">
-                                    <td scope="row">{{producto.id}}</td>
-                                    <td>{{producto.nombre}}</td>
-                                    <td>{{producto.precio}}</td>
-                                    <td>{{producto.stock}}</td>
-                                    <td>
-                                        <img width="150" :src="producto.imagen" :alt="producto.nombre">
+                                <tr class=" card-body" v-for="producto in productos">
+                                    <td class="align-middle" scope="row">{{producto.id}}</td>
+                                    <td class="align-middle" >{{producto.nombre}}</td>
+                                    <td class="align-middle" >{{producto.precio}}</td>
+                                    <td class="align-middle" >{{producto.stock}}</td>
+                                    <td class="align-middle"    >
+                                        <img width="100" :src="producto.imagen" :alt="producto.nombre">
                                     </td>
-                                    <td>
+                                    <td class="align-middle">
                                         <!-- Botón para editar el producto -->
-                                        <a class="btn btn-primary"
+                                        <a class="btn btn-warning me-2"
                                             :href="'producto-update.html?id='+ producto.id">Editar</a>
                                         <!-- Botón para eliminar el producto -->
                                         <button type="button" class="btn btn-danger"
